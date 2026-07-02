@@ -245,9 +245,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     var REPO  = "zaplink_pub";                // <-- change me if different
     var BASE  = "https://github.com/" + OWNER + "/" + REPO + "/releases/latest/download/";
     var ASSETS = {
-      mac:     BASE + "zapLink-macos.zip",
-      windows: BASE + "zapLink-windows.zip",
-      linux:   BASE + "zapLink-linux.tar.gz"
+      mac:     BASE + "zapLink-macos.dmg",
+      windows: BASE + "zapLink-windows-setup.exe",
+      linux:   BASE + "zapLink-linux-x86_64.AppImage"
     };
     function platformFor(text) {
       var s = (text || "").toLowerCase();

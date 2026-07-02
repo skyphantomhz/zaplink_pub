@@ -32,7 +32,7 @@ Already configured for **skyphantomhz/zaplink_pub**.
 2. **Enable Pages:** Settings -> Pages -> Deploy from a branch -> `main` -> `/ (root)`.
    Site goes live at https://skyphantomhz.github.io/zaplink_pub/
 3. **Publish a release** named `v1.0.0` and attach the three installer files
-   (`zapLink-macos.zip`, `zapLink-windows.zip`, `zapLink-linux.tar.gz`).
+   (`zapLink-macos.dmg`, `zapLink-windows-setup.exe`, `zapLink-linux-x86_64.AppImage`).
    The page's download buttons link to `releases/latest/download/<asset>`, so
    they always serve the newest release automatically.
 
