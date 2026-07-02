@@ -17,8 +17,8 @@ This is the **public landing page + downloads** for zapLink:
 
 - `index.html` — the marketing site, served via GitHub Pages.
 - `static/` — the share image and icons used by the page.
-- **Releases** — the installer downloads (`zapLink-macos.zip`,
-  `zapLink-windows.zip`, `zapLink-linux.tar.gz`).
+- **Releases** — the installer downloads (`zapLink-macos.dmg`,
+  `zapLink-windows-setup.exe`, `zapLink-linux-x86_64.AppImage`).
 
 The application source code lives in a separate (private) repository.
 
