@@ -2,7 +2,7 @@
 
 **Share files over Wi-Fi between your computer and any phone or Smart TV — no cloud, no cables.**
 
-🌐 **Website:** https://YOUR_GITHUB_USERNAME.github.io/zaplink/
+🌐 **Website:** https://skyphantomhz.github.io/zaplink_pub/
 ⬇️ **Downloads:** see the [Releases](../../releases/latest) page.
 
 zapLink turns your computer into a private local server. Pick a folder, hit
@@ -26,15 +26,16 @@ The application source code lives in a separate (private) repository.
 
 ## Maintainer setup
 
-1. **Create this repo as public** on GitHub (e.g. `zaplink`).
-2. **Enable Pages:** Settings -> Pages -> Deploy from a branch -> `main` -> `/ (root)`.
-3. **Edit `index.html`** and replace `YOUR_GITHUB_USERNAME` everywhere:
-   - the download-button config (`OWNER` / `REPO`) near the bottom,
-   - the SEO/social URLs in `<head>` (`canonical`, `og:url`, `og:image`, `twitter:image`, JSON-LD `url`).
-   `OWNER`/`REPO` must point at **this public repo** so the download links resolve.
-4. **Publish a release** here named `v1.0.0` and attach the three installer files.
-   The page's buttons link to `releases/latest/download/<asset>`, so they always
-   serve the newest release automatically.
+Already configured for **skyphantomhz/zaplink_pub**.
 
-See the private repo's `BUILD.md` for how the installers are built (PyInstaller
-+ GitHub Actions).
+1. Push this repo to `git@github.com:skyphantomhz/zaplink_pub.git`.
+2. **Enable Pages:** Settings -> Pages -> Deploy from a branch -> `main` -> `/ (root)`.
+   Site goes live at https://skyphantomhz.github.io/zaplink_pub/
+3. **Publish a release** named `v1.0.0` and attach the three installer files
+   (`zapLink-macos.zip`, `zapLink-windows.zip`, `zapLink-linux.tar.gz`).
+   The page's download buttons link to `releases/latest/download/<asset>`, so
+   they always serve the newest release automatically.
+
+The installers are built from the private source repo (see its `BUILD.md`) —
+either published here automatically via CI (PAT) or uploaded manually.
+
