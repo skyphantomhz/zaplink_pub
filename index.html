@@ -81,6 +81,31 @@
 </div>
   <div id="__bundler_loading">Unpacking...</div>
 
+  <!-- ============================================================
+       Static SEO fallback content.
+       The real UI is assembled client-side from a compressed bundle
+       (see script below), so crawlers that don't fully execute JS —
+       or that snapshot the DOM before the async unpack finishes —
+       previously saw raw "{{ t.heroTitle }}"-style template
+       placeholders instead of real text. This block gives them
+       actual, readable content. It is removed automatically right
+       before the real app mounts, so normal visitors never see it
+       (aside from a brief instant while unpacking).
+       ============================================================ -->
+  <main id="__seo_fallback" style="position:relative; max-width:720px; margin:0 auto; padding:80px 24px 40px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif; color:#15211F;">
+    <h1 style="font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2;">zapLink — Share files over Wi-Fi. No cloud, no cables.</h1>
+    <p style="font-size:16px; color:#5B6662; line-height:1.6; margin-top:14px;">Zaplink turns your computer into a private local server. Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi network can open it in a browser — instantly. Free for macOS, Windows &amp; Linux.</p>
+    <h2 style="font-size:20px; font-weight:700; margin-top:28px;">How it works</h2>
+    <ol style="font-size:15px; color:#5B6662; line-height:1.7; padding-left:20px;">
+      <li>Pick a folder on your computer you want to share.</li>
+      <li>Hit Start — a local server spins up instantly with a fresh PIN code.</li>
+      <li>Any device on the Wi-Fi scans the QR code, enters the PIN, and is in.</li>
+    </ol>
+    <h2 style="font-size:20px; font-weight:700; margin-top:28px;">Security</h2>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">A 4-digit PIN gates every visitor, and you can see — and revoke — every connected device in real time.</p>
+    <p style="font-size:13px; color:#9AA5A1; margin-top:24px;">macOS 12+ · Windows 10+ · Ubuntu 20.04+</p>
+  </main>
+
   <script>
     
 document.addEventListener('DOMContentLoaded', async function() {
@@ -186,6 +211,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
+
+    // The bundle's own <head> is a bare skeleton (just charset/viewport/manifest)
+    // and has no <title> or SEO meta tags. replaceWith() below would otherwise
+    // discard the real <title>/<meta>/<link>/JSON-LD from this document, which
+    // is why the browser tab (and search engines) show "Untitled". Carry the
+    // SEO-relevant head tags over into the parsed template before swapping.
+    const seoSelector = 'title, meta, link[rel="canonical"], link[rel="icon"], ' +
+      'link[rel="apple-touch-icon"], script[type="application/ld+json"]';
+    const seoNodes = Array.from(document.head.querySelectorAll(seoSelector));
+    for (const node of seoNodes) doc.head.appendChild(node.cloneNode(true));
+
+    // Drop the static SEO fallback content — the real app is about to mount.
+    const fallback = document.getElementById('__seo_fallback');
+    if (fallback) fallback.remove();
+
     document.documentElement.replaceWith(doc.documentElement);
     const dead = Array.from(document.scripts);
     for (const old of dead) {
