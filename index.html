@@ -92,7 +92,7 @@
        before the real app mounts, so normal visitors never see it
        (aside from a brief instant while unpacking).
        ============================================================ -->
-  <main id="__seo_fallback" style="position:relative; max-width:720px; margin:0 auto; padding:80px 24px 40px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif; color:#15211F;">
+  <main id="__seo_fallback" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; max-width:720px; margin:0 auto; padding:80px 24px 40px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif; color:#15211F;">
     <h1 style="font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2;">zapLink — Share files over Wi-Fi. No cloud, no cables.</h1>
     <p style="font-size:16px; color:#5B6662; line-height:1.6; margin-top:14px;">Zaplink turns your computer into a private local server. Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi network can open it in a browser — instantly. Free for macOS, Windows &amp; Linux.</p>
     <h2 style="font-size:20px; font-weight:700; margin-top:28px;">How it works</h2>
@@ -222,9 +222,18 @@ document.addEventListener('DOMContentLoaded', async function() {
     const seoNodes = Array.from(document.head.querySelectorAll(seoSelector));
     for (const node of seoNodes) doc.head.appendChild(node.cloneNode(true));
 
-    // Drop the static SEO fallback content — the real app is about to mount.
+    // Carry the fallback over into the parsed template BEFORE swapping,
+    // instead of deleting it here. Deleting it pre-swap assumes the app
+    // will finish mounting successfully, but the real UI is rendered by
+    // a separate framework (DCLogic/x-dc) loaded via the <script src>
+    // below — if that script errors, times out, or a crawler doesn't
+    // execute it fully, the swap still happens and leaves raw "{{ }}"
+    // template syntax in the DOM with no readable fallback left behind.
+    // Keeping the fallback node alive (hidden once real content is
+    // confirmed) means there is always something crawlable, even on
+    // partial/failed renders.
     const fallback = document.getElementById('__seo_fallback');
-    if (fallback) fallback.remove();
+    if (fallback) doc.body.insertBefore(fallback.cloneNode(true), doc.body.firstChild);
 
     document.documentElement.replaceWith(doc.documentElement);
     const dead = Array.from(document.scripts);
@@ -249,6 +258,39 @@ document.addEventListener('DOMContentLoaded', async function() {
     // which fired before we swapped the document. Trigger manually if present.
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
+    }
+
+    // Only now hide the fallback — after giving the framework a chance to
+    // mount and replace its "{{ t.xxx }}" template placeholders with real
+    // text. Poll briefly rather than trusting a fixed delay, and bail out
+    // (leaving the fallback visible) if placeholders are still present
+    // after the timeout, since that means rendering genuinely failed.
+    const fallbackNode = document.getElementById('__seo_fallback');
+    if (fallbackNode) {
+      const appRenderedOk = async () => {
+        for (let i = 0; i < 20; i++) {
+          const clone = document.body ? document.body.cloneNode(true) : null;
+          const cloneFallback = clone ? clone.querySelector('#__seo_fallback') : null;
+          if (cloneFallback) cloneFallback.remove();
+          const bodyText = clone ? clone.textContent : '';
+          if (bodyText && !bodyText.includes('{{') && bodyText.replace(/\s+/g, '').length > 200) {
+            return true;
+          }
+          await new Promise(function(r) { setTimeout(r, 100); });
+        }
+        return false;
+      };
+      if (await appRenderedOk()) {
+        fallbackNode.remove();
+      } else {
+        console.warn('[bundler] App render unconfirmed after timeout — keeping SEO fallback visible.');
+        fallbackNode.style.position = 'relative';
+        fallbackNode.style.width = 'auto';
+        fallbackNode.style.height = 'auto';
+        fallbackNode.style.overflow = 'visible';
+        fallbackNode.style.clip = 'auto';
+        fallbackNode.style.whiteSpace = 'normal';
+      }
     }
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
