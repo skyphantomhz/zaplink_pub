@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Cách Cài Đặt zapLink Trên macOS &amp; Windows — zapLink</title>
+  <meta name="description" content="Hướng dẫn từng bước cài đặt zapLink trên macOS và Windows khi bạn thấy cảnh báo 'nhà phát triển không xác định' hoặc 'Windows đã bảo vệ PC của bạn'. An toàn, miễn phí, chỉ mất chưa đầy một phút.">
+  <meta name="keywords" content="hướng dẫn cài zapLink, macOS nhà phát triển không xác định, vẫn mở, Windows đã bảo vệ PC của bạn, SmartScreen vẫn chạy, cho phép ứng dụng từ nhà phát triển đã biết, cài đặt zapLink">
+  <meta name="author" content="zapLink">
+  <meta name="theme-color" content="#0E1011">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/">
+
+  <link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/">
+  <link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/">
+  <link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/">
+  <link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/">
+  <link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../../static/icons/icon_32x32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../../static/icons/icon_128x128.png">
+  <link rel="apple-touch-icon" href="../../static/icons/icon_256x256.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="zapLink">
+  <meta property="og:title" content="Cách Cài Đặt zapLink Trên macOS & Windows">
+  <meta property="og:description" content="Hướng dẫn từng bước vượt qua cảnh báo 'nhà phát triển không xác định' trên macOS và cảnh báo SmartScreen trên Windows.">
+  <meta property="og:url" content="https://skyphantomhz.github.io/zaplink_pub/vi/install/">
+  <meta property="og:image" content="https://skyphantomhz.github.io/zaplink_pub/static/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="vi_VN">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Cách Cài Đặt zapLink Trên macOS & Windows",
+    "description": "Hướng dẫn từng bước cài đặt zapLink khi hệ điều hành hiển thị cảnh báo an toàn vì ứng dụng chưa đăng ký nhà phát triển.",
+    "author": { "@type": "Organization", "name": "zapLink" },
+    "url": "https://skyphantomhz.github.io/zaplink_pub/vi/install/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Tại sao macOS báo zapLink đến từ nhà phát triển không xác định?",
+        "acceptedAnswer": { "@type": "Answer", "text": "zapLink là ứng dụng miễn phí, phát hành độc lập và chưa tham gia chương trình notarization có phí của Apple. macOS hiển thị cảnh báo này cho mọi ứng dụng tải ngoài App Store chưa được notarize. Điều này không có nghĩa ứng dụng không an toàn — chỉ là chưa qua quy trình xét duyệt có phí của Apple." }
+      },
+      {
+        "@type": "Question",
+        "name": "Tại sao Windows SmartScreen chặn zapLink?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SmartScreen cảnh báo về các ứng dụng chưa có uy tín tải xuống hoặc chưa có chứng chỉ ký số có phí. Bạn vẫn có thể chạy ứng dụng an toàn bằng cách nhấn 'Thông tin thêm' rồi 'Chạy dù sao'." }
+      },
+      {
+        "@type": "Question",
+        "name": "Nhấn 'Vẫn mở' hoặc 'Chạy dù sao' có an toàn không?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Có, miễn là bạn tải zapLink từ trang GitHub Releases chính thức. Chỉ nên bỏ qua các cảnh báo này với phần mềm từ nguồn bạn tin tưởng." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0E1011; color: #E7ECEA; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 48px; }
+    h1 { font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1.3; color: #FFFFFF; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 40px; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    h3 { font-size: 16px; font-weight: 700; margin-top: 20px; color: #FFFFFF; }
+    p { font-size: 16px; color: #A9B3AF; line-height: 1.7; margin-top: 12px; }
+    ol, ul { font-size: 15px; color: #A9B3AF; line-height: 1.8; padding-left: 22px; margin-top: 10px; }
+    li { margin-top: 6px; }
+    code { background: #1A1D1E; color: #39FFB0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+    a { color: #39FFB0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .cta { display: inline-block; margin-top: 12px; padding: 12px 24px; background: #39FFB0; color: #0E1011; font-weight: 700; border-radius: 8px; }
+    .note { margin-top: 16px; padding: 14px 16px; background: #17201C; border-left: 3px solid #39FFB0; border-radius: 6px; font-size: 14px; color: #A9B3AF; }
+    .langs { font-size: 13px; color: #7A8582; margin-top: 48px; }
+    .back { font-size: 14px; margin-top: 4px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="https://skyphantomhz.github.io/zaplink_pub/vi/">← Quay lại zapLink</a>
+    <h1>Cách Cài Đặt zapLink Trên macOS &amp; Windows</h1>
+    <p>zapLink miễn phí và mở cho mọi người sử dụng, nhưng vì được phân phối ngoài Mac App Store và Microsoft Store, macOS và Windows có thể hiển thị cảnh báo an toàn lần đầu bạn mở ứng dụng. Đây là điều bình thường với phần mềm miễn phí, độc lập — dưới đây là cách vượt qua cảnh báo này chỉ trong chưa đầy một phút.</p>
+
+    <h2>🍎 macOS: "Apple không thể xác minh... không chứa phần mềm độc hại"</h2>
+    <p>Gatekeeper của macOS mặc định chặn các ứng dụng từ nhà phát triển không xác định. Để cho phép zapLink:</p>
+    <h3>Cách A — Click chuột phải để mở (nhanh nhất)</h3>
+    <ol>
+      <li>Tìm file <code>zapLink-macos.dmg</code> trong thư mục Downloads, mở nó, rồi kéo zapLink vào thư mục Applications.</li>
+      <li>Mở thư mục <strong>Applications</strong>, tìm <strong>zapLink</strong>.</li>
+      <li><strong>Click chuột phải</strong> (hoặc giữ Control và click) vào icon zapLink và chọn <strong>Open</strong> trong menu.</li>
+      <li>Một hộp thoại cảnh báo về nhà phát triển không xác định sẽ hiện lên. Nhấn <strong>Open</strong> lần nữa để xác nhận.</li>
+      <li>zapLink sẽ khởi động, và macOS sẽ ghi nhớ lựa chọn này cho các lần mở sau.</li>
+    </ol>
+    <h3>Cách B — Cho phép qua System Settings</h3>
+    <ol>
+      <li>Thử mở zapLink bình thường (double-click). macOS sẽ chặn và hiển thị cảnh báo.</li>
+      <li>Mở <strong>System Settings</strong> → <strong>Privacy &amp; Security</strong>.</li>
+      <li>Cuộn xuống phần <strong>Security</strong> — bạn sẽ thấy thông báo zapLink đã bị chặn.</li>
+      <li>Nhấn <strong>Open Anyway</strong>.</li>
+      <li>Xác nhận lại nếu được yêu cầu (có thể cần nhập mật khẩu Mac hoặc Touch ID).</li>
+    </ol>
+    <div class="note">Trên các phiên bản macOS cũ hơn (Catalina/Big Sur), cài đặt này có thể nằm ở <strong>System Preferences → Security &amp; Privacy → General</strong>.</div>
+
+    <h2>🪟 Windows: "Windows đã bảo vệ PC của bạn"</h2>
+    <p>Windows SmartScreen hiển thị cảnh báo này cho các ứng dụng chưa có uy tín tải xuống. Để cho phép zapLink:</p>
+    <ol>
+      <li>Chạy <code>zapLink-windows-setup.exe</code> như bình thường.</li>
+      <li>Khi màn hình xanh "Windows đã bảo vệ PC của bạn" xuất hiện, nhấn <strong>Thông tin thêm</strong>.</li>
+      <li>Một tùy chọn mới, <strong>Chạy dù sao</strong>, sẽ xuất hiện — nhấn vào đó.</li>
+      <li>Trình cài đặt sẽ tiếp tục bình thường. Làm theo các bước để hoàn tất cài đặt zapLink.</li>
+    </ol>
+    <div class="note">Nếu phần mềm diệt virus của bạn cũng cảnh báo về trình cài đặt, bạn có thể cho phép an toàn — chỉ cần chắc chắn bạn đã tải từ <a href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">trang GitHub Releases chính thức</a>.</div>
+
+    <h2>Câu hỏi thường gặp</h2>
+    <h3>Tại sao macOS báo zapLink đến từ nhà phát triển không xác định?</h3>
+    <p>zapLink là ứng dụng miễn phí, phát hành độc lập và chưa tham gia chương trình notarization có phí của Apple. Cảnh báo này không có nghĩa ứng dụng không an toàn — chỉ là chưa qua quy trình xét duyệt có phí của Apple.</p>
+    <h3>Tại sao Windows SmartScreen chặn zapLink?</h3>
+    <p>SmartScreen cảnh báo về các ứng dụng chưa có uy tín tải xuống hoặc chưa có chứng chỉ ký số có phí. Bạn vẫn có thể chạy ứng dụng an toàn bằng cách nhấn "Thông tin thêm" rồi "Chạy dù sao".</p>
+    <h3>Nhấn "Vẫn mở" hoặc "Chạy dù sao" có an toàn không?</h3>
+    <p>Có, miễn là bạn tải zapLink từ <a href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">trang GitHub Releases chính thức</a>. Chỉ nên bỏ qua các cảnh báo này với phần mềm từ nguồn bạn tin tưởng.</p>
+
+    <a class="cta" href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">Đi tới trang Tải xuống</a>
+
+    <p class="langs">Language: <a href="https://skyphantomhz.github.io/zaplink_pub/install/">English</a> · <a href="https://skyphantomhz.github.io/zaplink_pub/zh/install/">中文</a> · <a href="https://skyphantomhz.github.io/zaplink_pub/es/install/">Español</a></p>
+  </main>
+
+  <script data-goatcounter="https://zaplink.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -165,6 +165,7 @@
     <p style="font-size:15px; color:#5B6662; line-height:1.6;">zapLink runs on macOS 12+, Windows 10+, and Ubuntu 20.04+ (and compatible Linux distributions).</p>
     <h3 style="font-size:16px; font-weight:700; margin-top:18px;">Do I need to install anything on my phone or TV?</h3>
     <p style="font-size:15px; color:#5B6662; line-height:1.6;">No. Any phone, tablet, or Smart TV on the same network can connect using just its browser — no app required.</p>
+    <p style="font-size:14px; color:#7A8582; margin-top:16px;">See a security warning when installing? <a href="/zaplink_pub/install/" style="color:#39A87A;">Here's how to allow zapLink on macOS &amp; Windows</a>.</p>
   </main>
 
   <script>
@@ -380,6 +381,11 @@ document.addEventListener('DOMContentLoaded', async function() {
        capturing click listener on `document` (survives DOM swaps and
        re-renders) that routes each button to its GitHub release asset.
 
+       Also injects a small "Install guide" link next to those buttons
+       (via MutationObserver, since the bundle re-renders on language
+       toggle) pointing to the install-help page for users who hit the
+       macOS/Windows "unknown developer" security warning.
+
        👉 EDIT OWNER/REPO below to match your GitHub repository.
        ============================================================ -->
   <script>
@@ -392,6 +398,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       windows: BASE + "zapLink-windows-setup.exe",
       linux:   BASE + "zapLink-linux-x86_64.AppImage"
     };
+    var INSTALL_GUIDE_URL = "https://skyphantomhz.github.io/zaplink_pub/install/";
     function platformFor(text) {
       var s = (text || "").toLowerCase();
       if (s.indexOf("mac") !== -1) return "mac";
@@ -407,6 +414,34 @@ document.addEventListener('DOMContentLoaded', async function() {
       e.preventDefault();
       window.open(ASSETS[p], "_blank", "noopener");
     }, true);
+
+    // Inject an "Install guide" link right after the #download CTA
+    // buttons. Runs on load and again whenever the bundle re-renders
+    // (e.g. language toggle recreates the whole subtree), guarded by
+    // a data attribute so it's never duplicated.
+    function injectInstallGuideLink() {
+      var section = document.getElementById("download");
+      if (!section) return;
+      if (section.querySelector('[data-install-guide-link="1"]')) return;
+      var buttonsRow = section.querySelector("div[style*='flex-wrap:wrap']");
+      if (!buttonsRow) return;
+      var link = document.createElement("a");
+      link.href = INSTALL_GUIDE_URL;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.setAttribute("data-install-guide-link", "1");
+      link.textContent = "Trouble installing? See the install guide →";
+      link.style.cssText = "display:block; font-size:13px; color:#0E9F8E; margin-top:18px; text-decoration:none; font-weight:600;";
+      link.addEventListener("mouseenter", function () { link.style.textDecoration = "underline"; });
+      link.addEventListener("mouseleave", function () { link.style.textDecoration = "none"; });
+      buttonsRow.insertAdjacentElement("afterend", link);
+    }
+
+    injectInstallGuideLink();
+    var root = document.querySelector("x-dc") || document.body;
+    if (root && window.MutationObserver) {
+      new MutationObserver(function () { injectInstallGuideLink(); }).observe(root, { childList: true, subtree: true });
+    }
   })();
   </script>
 </body>

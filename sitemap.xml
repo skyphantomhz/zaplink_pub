@@ -62,4 +62,48 @@
       <image:title>zapLink — transferir archivos por Wi-Fi y LAN</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://skyphantomhz.github.io/zaplink_pub/install/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+  </url>
+  <url>
+    <loc>https://skyphantomhz.github.io/zaplink_pub/zh/install/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+  </url>
+  <url>
+    <loc>https://skyphantomhz.github.io/zaplink_pub/vi/install/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+  </url>
+  <url>
+    <loc>https://skyphantomhz.github.io/zaplink_pub/es/install/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/"/>
+  </url>
 </urlset>

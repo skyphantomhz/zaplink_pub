@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>如何在 macOS 和 Windows 上安装 zapLink — zapLink</title>
+  <meta name="description" content="当系统提示“无法验证开发者”或“Windows 已保护你的电脑”时，如何在 macOS 和 Windows 上安全安装 zapLink 的分步指南，不到一分钟即可完成。">
+  <meta name="keywords" content="zapLink 安装指南, macOS 无法验证开发者, 仍要打开, Windows已保护你的电脑, SmartScreen仍要运行, 允许来自已知开发者的应用, 安装zapLink">
+  <meta name="author" content="zapLink">
+  <meta name="theme-color" content="#0E1011">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/">
+
+  <link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/install/">
+  <link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/install/">
+  <link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/install/">
+  <link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/install/">
+  <link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/install/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../../static/icons/icon_32x32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../../static/icons/icon_128x128.png">
+  <link rel="apple-touch-icon" href="../../static/icons/icon_256x256.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="zapLink">
+  <meta property="og:title" content="如何在 macOS 和 Windows 上安装 zapLink">
+  <meta property="og:description" content="分步指南：绕过 macOS 的“无法验证开发者”警告和 Windows 的 SmartScreen 警告。">
+  <meta property="og:url" content="https://skyphantomhz.github.io/zaplink_pub/zh/install/">
+  <meta property="og:image" content="https://skyphantomhz.github.io/zaplink_pub/static/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="zh_CN">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "如何在 macOS 和 Windows 上安装 zapLink",
+    "description": "当系统因应用未注册开发者身份而显示安全警告时，如何安装 zapLink 的分步指南。",
+    "author": { "@type": "Organization", "name": "zapLink" },
+    "url": "https://skyphantomhz.github.io/zaplink_pub/zh/install/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "为什么 macOS 提示 zapLink 来自身份不明的开发者？",
+        "acceptedAnswer": { "@type": "Answer", "text": "zapLink 是一款免费、独立发行的应用，尚未加入苹果的付费公证计划。对于任何未经公证的 App Store 之外应用，macOS 都会显示此警告，这并不代表应用不安全，只是尚未经过苹果的付费审核流程。" }
+      },
+      {
+        "@type": "Question",
+        "name": "为什么 Windows SmartScreen 会拦截 zapLink？",
+        "acceptedAnswer": { "@type": "Answer", "text": "SmartScreen 会对尚未建立良好声誉或没有付费代码签名证书的应用发出警告。你可以点击“更多信息”然后“仍要运行”来安全运行该应用。" }
+      },
+      {
+        "@type": "Question",
+        "name": "点击“仍要打开”或“仍要运行”安全吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "只要你是从官方 GitHub Releases 页面下载的 zapLink，这样操作就是安全的。请仅对你信任来源的软件执行此操作。" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0E1011; color: #E7ECEA; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 64px 24px 48px; }
+    h1 { font-size: 32px; font-weight: 800; letter-spacing: -.02em; line-height: 1.3; color: #FFFFFF; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 40px; color: #FFFFFF; display: flex; align-items: center; gap: 10px; }
+    h3 { font-size: 16px; font-weight: 700; margin-top: 20px; color: #FFFFFF; }
+    p { font-size: 16px; color: #A9B3AF; line-height: 1.7; margin-top: 12px; }
+    ol, ul { font-size: 15px; color: #A9B3AF; line-height: 1.8; padding-left: 22px; margin-top: 10px; }
+    li { margin-top: 6px; }
+    code { background: #1A1D1E; color: #39FFB0; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+    a { color: #39FFB0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .cta { display: inline-block; margin-top: 12px; padding: 12px 24px; background: #39FFB0; color: #0E1011; font-weight: 700; border-radius: 8px; }
+    .note { margin-top: 16px; padding: 14px 16px; background: #17201C; border-left: 3px solid #39FFB0; border-radius: 6px; font-size: 14px; color: #A9B3AF; }
+    .langs { font-size: 13px; color: #7A8582; margin-top: 48px; }
+    .back { font-size: 14px; margin-top: 4px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="https://skyphantomhz.github.io/zaplink_pub/zh/">← 返回 zapLink</a>
+    <h1>如何在 macOS 和 Windows 上安装 zapLink</h1>
+    <p>zapLink 完全免费开放使用，但由于它并非通过 Mac App Store 或 Microsoft Store 发行，macOS 和 Windows 首次打开时可能会显示安全警告。这对于独立发行的免费软件是正常现象——以下是解除警告的具体步骤，不到一分钟即可完成。</p>
+
+    <h2>🍎 macOS：“Apple 无法验证...是否包含恶意软件”</h2>
+    <p>macOS 的 Gatekeeper 机制默认会拦截来自未识别开发者的应用。要允许运行 zapLink：</p>
+    <h3>方法一 — 右键打开（最快）</h3>
+    <ol>
+      <li>在“下载”文件夹中找到 <code>zapLink-macos.dmg</code> 并打开，然后将 zapLink 拖入“应用程序”文件夹。</li>
+      <li>打开“应用程序”文件夹，找到 <strong>zapLink</strong>。</li>
+      <li><strong>右键点击</strong>（或按住 Control 点击）zapLink 图标，从菜单中选择<strong>打开</strong>。</li>
+      <li>系统会弹出关于未知开发者的警告，再次点击<strong>打开</strong>确认。</li>
+      <li>zapLink 即可启动，macOS 会记住此次选择，以后打开无需重复此步骤。</li>
+    </ol>
+    <h3>方法二 — 通过系统设置允许</h3>
+    <ol>
+      <li>尝试正常双击打开 zapLink，macOS 会拦截并显示警告。</li>
+      <li>打开<strong>系统设置</strong> → <strong>隐私与安全性</strong>。</li>
+      <li>向下滚动到<strong>安全性</strong>部分，会看到 zapLink 被阻止运行的提示。</li>
+      <li>点击<strong>仍要打开</strong>。</li>
+      <li>如有提示，请再次确认（可能需要输入 Mac 密码或使用 Touch ID）。</li>
+    </ol>
+    <div class="note">在较旧版本的 macOS（Catalina/Big Sur）上，该设置可能位于<strong>系统偏好设置 → 安全性与隐私 → 通用</strong>中。</div>
+
+    <h2>🪟 Windows：“Windows 已保护你的电脑”</h2>
+    <p>Windows SmartScreen 会对尚未建立下载信誉的应用显示此警告。要允许运行 zapLink：</p>
+    <ol>
+      <li>正常运行 <code>zapLink-windows-setup.exe</code>。</li>
+      <li>当出现蓝色的“Windows 已保护你的电脑”界面时，点击<strong>更多信息</strong>。</li>
+      <li>此时会出现<strong>仍要运行</strong>选项，点击它。</li>
+      <li>安装程序将继续正常运行，按照安装步骤完成 zapLink 的安装。</li>
+    </ol>
+    <div class="note">如果你的防病毒软件也拦截了安装程序，只要你是从官方 <a href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">GitHub Releases 页面</a>下载的，就可以放心允许运行。</div>
+
+    <h2>常见问题</h2>
+    <h3>为什么 macOS 提示 zapLink 来自身份不明的开发者？</h3>
+    <p>zapLink 是一款免费、独立发行的应用，尚未加入苹果的付费公证计划。这个警告并不代表应用不安全，只是尚未经过苹果的付费审核流程。</p>
+    <h3>为什么 Windows SmartScreen 会拦截 zapLink？</h3>
+    <p>SmartScreen 会对尚未建立良好声誉或没有付费代码签名证书的应用发出警告。你可以点击“更多信息”然后“仍要运行”来安全运行该应用。</p>
+    <h3>点击“仍要打开”或“仍要运行”安全吗？</h3>
+    <p>只要你是从官方 <a href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">GitHub Releases 页面</a>下载的 zapLink，这样操作就是安全的。请仅对你信任来源的软件执行此操作。</p>
+
+    <a class="cta" href="https://github.com/skyphantomhz/zaplink_pub/releases/latest">前往下载</a>
+
+    <p class="langs">Language: <a href="https://skyphantomhz.github.io/zaplink_pub/install/">English</a> · <a href="https://skyphantomhz.github.io/zaplink_pub/vi/install/">Tiếng Việt</a> · <a href="https://skyphantomhz.github.io/zaplink_pub/es/install/">Español</a></p>
+  </main>
+
+  <script data-goatcounter="https://zaplink.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
