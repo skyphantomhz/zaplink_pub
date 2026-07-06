@@ -9,13 +9,20 @@
        👉 EDIT SITE_URL below (og:url / canonical / og:image) to your
           GitHub Pages URL, e.g. https://your-username.github.io/zaplink/
        ============================================================ -->
-  <title>zapLink — Share files over Wi-Fi. No cloud, no cables.</title>
-  <meta name="description" content="zapLink turns your computer into a private local server. Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi opens it in a browser — instantly. Free for macOS, Windows & Linux.">
-  <meta name="keywords" content="zapLink, local file sharing, share files over wifi, LAN file server, send files to phone, no cloud file transfer, QR file share, macOS Windows Linux">
+  <title>zapLink — Transfer Files Over Wi-Fi & LAN. No Cloud, No Cables.</title>
+  <meta name="description" content="zapLink lets you transfer files over Wi-Fi or LAN instantly. Turn your computer into a private local server, pick a folder, hit Start, and any phone or Smart TV on the same network opens it in a browser — no cloud, no cables. Free for macOS, Windows & Linux.">
+  <meta name="keywords" content="transfer files over wifi, transfer files over LAN, zapLink, local file sharing, LAN file server, wifi file transfer, send files to phone, no cloud file transfer, QR file share, macOS Windows Linux">
   <meta name="author" content="zapLink">
   <meta name="theme-color" content="#0E1011">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://skyphantomhz.github.io/zaplink_pub/">
+
+  <!-- hreflang alternates for multilingual SEO -->
+  <link rel="alternate" hreflang="en" href="https://skyphantomhz.github.io/zaplink_pub/">
+  <link rel="alternate" hreflang="zh" href="https://skyphantomhz.github.io/zaplink_pub/zh/">
+  <link rel="alternate" hreflang="vi" href="https://skyphantomhz.github.io/zaplink_pub/vi/">
+  <link rel="alternate" hreflang="es" href="https://skyphantomhz.github.io/zaplink_pub/es/">
+  <link rel="alternate" hreflang="x-default" href="https://skyphantomhz.github.io/zaplink_pub/">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="static/icons/icon_32x32.png">
@@ -25,22 +32,24 @@
   <!-- Open Graph (Facebook, LinkedIn, Zalo, Messenger, etc.) -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="zapLink">
-  <meta property="og:title" content="zapLink — Share files over Wi-Fi. No cloud, no cables.">
-  <meta property="og:description" content="Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi opens it in a browser — instantly. Free for macOS, Windows & Linux.">
+  <meta property="og:title" content="zapLink — Transfer Files Over Wi-Fi & LAN. No Cloud, No Cables.">
+  <meta property="og:description" content="Transfer files over Wi-Fi or LAN instantly. Pick a folder, hit Start, and any phone or Smart TV on the same network opens it in a browser — instantly. Free for macOS, Windows & Linux.">
   <meta property="og:url" content="https://skyphantomhz.github.io/zaplink_pub/">
   <meta property="og:image" content="https://skyphantomhz.github.io/zaplink_pub/static/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="zapLink — share files over Wi-Fi">
+  <meta property="og:image:alt" content="zapLink — transfer files over Wi-Fi and LAN">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
   <meta property="og:locale:alternate" content="vi_VN">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="zapLink — Share files over Wi-Fi. No cloud, no cables.">
-  <meta name="twitter:description" content="Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi opens it in a browser — instantly. Free for macOS, Windows & Linux.">
+  <meta name="twitter:title" content="zapLink — Transfer Files Over Wi-Fi & LAN. No Cloud, No Cables.">
+  <meta name="twitter:description" content="Transfer files over Wi-Fi or LAN instantly. Pick a folder, hit Start, and any phone or Smart TV on the same network opens it in a browser — instantly. Free for macOS, Windows & Linux.">
   <meta name="twitter:image" content="https://skyphantomhz.github.io/zaplink_pub/static/og-image.png">
-  <meta name="twitter:image:alt" content="zapLink — share files over Wi-Fi">
+  <meta name="twitter:image:alt" content="zapLink — transfer files over Wi-Fi and LAN">
 
   <!-- Structured data: SoftwareApplication -->
   <script type="application/ld+json">
@@ -48,11 +57,47 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "zapLink",
-    "description": "Share files over Wi-Fi between your computer and a phone or Smart TV — no cloud, no cables.",
+    "description": "Transfer files over Wi-Fi or LAN between your computer and a phone or Smart TV — no cloud, no cables.",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "macOS, Windows, Linux",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "url": "https://skyphantomhz.github.io/zaplink_pub/"
+    "url": "https://skyphantomhz.github.io/zaplink_pub/",
+    "inLanguage": ["en", "zh", "vi", "es"]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my data uploaded to the cloud?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. zapLink transfers files directly over your local Wi-Fi or LAN network. Nothing is uploaded to any server — your files never leave your network." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an internet connection?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. zapLink works entirely offline as long as your devices are connected to the same Wi-Fi or LAN network." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the connection secured?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every session is protected by a 4-digit PIN, and you can view and revoke connected devices in real time." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which operating systems are supported?",
+        "acceptedAnswer": { "@type": "Answer", "text": "zapLink runs on macOS 12+, Windows 10+, and Ubuntu 20.04+ (and compatible Linux distributions)." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to install anything on my phone or TV?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Any phone, tablet, or Smart TV on the same network can connect using just its browser — no app required." }
+      }
+    ]
   }
   </script>
 
@@ -70,6 +115,9 @@
       This page requires JavaScript to display.
     </div>
   </noscript>
+
+  <!-- Analytics (GoatCounter — free, privacy-friendly, no cookies, no GDPR consent banner needed). Dashboard: https://zaplink.goatcounter.com -->
+  <script data-goatcounter="https://zaplink.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div id="__bundler_thumbnail">
@@ -93,8 +141,9 @@
        (aside from a brief instant while unpacking).
        ============================================================ -->
   <main id="__seo_fallback" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; max-width:720px; margin:0 auto; padding:80px 24px 40px; font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif; color:#15211F;">
-    <h1 style="font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2;">zapLink — Share files over Wi-Fi. No cloud, no cables.</h1>
-    <p style="font-size:16px; color:#5B6662; line-height:1.6; margin-top:14px;">Zaplink turns your computer into a private local server. Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi network can open it in a browser — instantly. Free for macOS, Windows &amp; Linux.</p>
+    <h1 style="font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2;">zapLink — Transfer Files Over Wi-Fi &amp; LAN. No Cloud, No Cables.</h1>
+    <p style="font-size:16px; color:#5B6662; line-height:1.6; margin-top:14px;">zapLink lets you transfer files over Wi-Fi or LAN instantly. It turns your computer into a private local server. Pick a folder, hit Start, and any phone or Smart TV on the same Wi-Fi or LAN network can open it in a browser — instantly. Free for macOS, Windows &amp; Linux.</p>
+    <p style="font-size:14px; color:#7A8582; margin-top:8px;">Available in: <a href="/zaplink_pub/zh/" style="color:#39A87A;">中文</a> · <a href="/zaplink_pub/vi/" style="color:#39A87A;">Tiếng Việt</a> · <a href="/zaplink_pub/es/" style="color:#39A87A;">Español</a></p>
     <h2 style="font-size:20px; font-weight:700; margin-top:28px;">How it works</h2>
     <ol style="font-size:15px; color:#5B6662; line-height:1.7; padding-left:20px;">
       <li>Pick a folder on your computer you want to share.</li>
@@ -104,6 +153,18 @@
     <h2 style="font-size:20px; font-weight:700; margin-top:28px;">Security</h2>
     <p style="font-size:15px; color:#5B6662; line-height:1.6;">A 4-digit PIN gates every visitor, and you can see — and revoke — every connected device in real time.</p>
     <p style="font-size:13px; color:#9AA5A1; margin-top:24px;">macOS 12+ · Windows 10+ · Ubuntu 20.04+</p>
+
+    <h2 style="font-size:20px; font-weight:700; margin-top:28px;">Frequently asked questions</h2>
+    <h3 style="font-size:16px; font-weight:700; margin-top:18px;">Is my data uploaded to the cloud?</h3>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">No. zapLink transfers files directly over your local Wi-Fi or LAN network. Nothing is uploaded to any server — your files never leave your network.</p>
+    <h3 style="font-size:16px; font-weight:700; margin-top:18px;">Do I need an internet connection?</h3>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">No. zapLink works entirely offline as long as your devices are connected to the same Wi-Fi or LAN network.</p>
+    <h3 style="font-size:16px; font-weight:700; margin-top:18px;">How is the connection secured?</h3>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">Every session is protected by a 4-digit PIN, and you can view and revoke connected devices in real time.</p>
+    <h3 style="font-size:16px; font-weight:700; margin-top:18px;">Which operating systems are supported?</h3>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">zapLink runs on macOS 12+, Windows 10+, and Ubuntu 20.04+ (and compatible Linux distributions).</p>
+    <h3 style="font-size:16px; font-weight:700; margin-top:18px;">Do I need to install anything on my phone or TV?</h3>
+    <p style="font-size:15px; color:#5B6662; line-height:1.6;">No. Any phone, tablet, or Smart TV on the same network can connect using just its browser — no app required.</p>
   </main>
 
   <script>
