@@ -287,7 +287,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     // is why the browser tab (and search engines) show "Untitled". Carry the
     // SEO-relevant head tags over into the parsed template before swapping.
     const seoSelector = 'title, meta, link[rel="canonical"], link[rel="icon"], ' +
-      'link[rel="apple-touch-icon"], script[type="application/ld+json"]';
+      'link[rel="apple-touch-icon"], script[type="application/ld+json"], ' +
+      'script[data-goatcounter]';
     const seoNodes = Array.from(document.head.querySelectorAll(seoSelector));
     for (const node of seoNodes) doc.head.appendChild(node.cloneNode(true));
 
